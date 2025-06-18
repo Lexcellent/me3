@@ -297,7 +297,6 @@ pub fn launch(
         let (steam_app, steam_library) = steam_src?;
         info!(name = ?steam_app.name, "found steam app in library");
 
-        
         launcher = args.exe.unwrap_or_else(|| {
             steam_library
                 .resolve_app_dir(&steam_app)
