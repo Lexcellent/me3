@@ -19,7 +19,7 @@ use windows::Win32::{
     Foundation::{DuplicateHandle, DUPLICATE_CLOSE_SOURCE, DUPLICATE_SAME_ACCESS, HANDLE},
     System::Threading::GetCurrentProcess,
 };
-
+use crate::game::Game;
 // use crate::{game::Game, steam::require_steam};
 
 mod game;
