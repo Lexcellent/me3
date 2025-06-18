@@ -86,8 +86,8 @@ jobs:
           echo "RELEASE_TAG=$TAG" >> "$GITHUB_ENV"
           echo "RELEASE_IS_PRERELEASE=true" >> "$GITHUB_ENV"
 
-          if gh release view "$TAG" -R garyttierney/me3 ; then
-              gh release delete "$TAG" -R garyttierney/me3 -y --cleanup-tag
+          if gh release view "$TAG" -R Lexcellent/me3 ; then
+              gh release delete "$TAG" -R Lexcellent/me3 -y --cleanup-tag
               sleep 15s
           fi
 
@@ -122,7 +122,7 @@ jobs:
 
       - name: Upload installer to release
         run: >-
-          gh release upload --clobber -R garyttierney/me3 "${{ steps.collect-release-info.outputs.release_tag }}"
+          gh release upload --clobber -R Lexcellent/me3 "${{ steps.collect-release-info.outputs.release_tag }}"
           'me3_installer.exe#me3_installer.exe (Installer for Windows)'
           'installer.sh#installer.sh (Installer for Linux)'
           'me3-windows-amd64.zip#me3-windows-amd64.zip (Portable distribution for Windows)'

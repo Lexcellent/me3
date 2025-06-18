@@ -4,7 +4,7 @@
 !include Integration.nsh
 
 !define PRODUCT "garyttierney\me3"
-!define PRODUCT_URL "https://github.com/garyttierney/me3"
+!define PRODUCT_URL "https://github.com/Lexcellent/me3"
 
 !define MUI_ICON "distribution/assets/me3.ico"
 

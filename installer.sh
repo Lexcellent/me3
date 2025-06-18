@@ -343,7 +343,7 @@ main() {
     local _file
     for _file in "me3" "me3-launcher.exe" "me3_mod_host.dll"; do
         say "downloading $_file"
-        downloader "https://github.com/garyttierney/me3/releases/download/$me3_version/$_file" "$_dir/$_file"
+        downloader "https://github.com/Lexcellent/me3/releases/download/$me3_version/$_file" "$_dir/$_file"
 
         if check_cmd gh; then
             ensure gh attestation verify --owner garyttierney --predicate-type https://cyclonedx.org/bom "$_dir/$_file" >/dev/null
