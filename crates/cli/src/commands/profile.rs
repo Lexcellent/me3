@@ -41,6 +41,17 @@ pub struct ProfileCreateArgs {
     #[arg(value_enum)]
     game: Option<Game>,
 
+    /// Path to the game executable
+    #[clap(
+        long("exe"), // 长参数名 --exe
+        short('e'),   // 添加短参数名 -e
+        value_name = "PATH", // 帮助文档中显示的参数值名称
+        help = "Path to the game executable file",
+        help_heading = "Game selection", // 与 game 参数放在同一帮助分组
+        conflicts_with = "game" // 与 game 参数互斥
+    )]
+    exe: Option<PathBuf>,
+
     /// Path to a list of packages to add to the profile.
     #[clap(long("package"))]
     packages: Vec<PathBuf>,
@@ -105,6 +116,7 @@ pub fn create(config: Config, args: ProfileCreateArgs) -> color_eyre::Result<()>
 
         supports.push(Supports {
             game: game.into(),
+            exe: args.exe,
             since_version: None,
         });
     }
