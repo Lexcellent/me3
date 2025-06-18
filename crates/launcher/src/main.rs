@@ -20,7 +20,7 @@ use windows::Win32::{
     System::Threading::GetCurrentProcess,
 };
 
-use crate::{game::Game, steam::require_steam};
+// use crate::{game::Game, steam::require_steam};
 
 mod game;
 mod steam;
@@ -43,7 +43,7 @@ fn run() -> LauncherResult<()> {
         args.exe, args.host_dll
     );
 
-    require_steam(&args.exe)?;
+    // require_steam(&args.exe)?;
 
     let game_path = args.exe.parent();
     let game = Game::launch(&args.exe, game_path)?;
