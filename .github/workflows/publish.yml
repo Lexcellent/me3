@@ -4,10 +4,10 @@ on:
       - released
   push:
     branches:
-      - main
+      - my
   pull_request:
     branches:
-      - main
+      - my
   workflow_dispatch:
 name: Publishing
 concurrency:

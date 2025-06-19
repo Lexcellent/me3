@@ -1,10 +1,10 @@
 on:
   pull_request:
     branches:
-      - main
+      - my
   push:
     branches:
-      - main
+      - my
 
 name: CI
 concurrency:

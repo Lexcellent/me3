@@ -1,9 +1,9 @@
 name: Checks
 on:
   pull_request:
-    branches: [main]
+    branches: [my]
   push:
-    branches: [main]
+    branches: [my]
 
 env:
   CARGO_NET_GIT_FETCH_WITH_CLI: true

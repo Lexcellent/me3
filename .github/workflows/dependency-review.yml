@@ -10,10 +10,10 @@ name: "Dependency Review"
 on:
   pull_request_target:
     branches:
-      - main
+      - my
   push:
     branches:
-      - main
+      - my
 
 permissions:
   contents: read

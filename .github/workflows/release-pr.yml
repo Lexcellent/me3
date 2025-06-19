@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - my
 name: Create release PR
 concurrency:
   group: ${{ github.workflow }}
