@@ -195,8 +195,8 @@ jobs:
       - name: Create distributions
         run: |
           make dist
-        env:
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+#        env:
+#          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
 
       - uses: taiki-e/install-action@9ba3ac3fd006a70c6e186a683577abc1ccf0ff3a # v2.54.0
         with:
