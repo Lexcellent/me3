@@ -116,7 +116,7 @@ Function .onInit
 FunctionEnd
 
 Function onFinish
-  ExecShell "open" "$LOCALAPPDATA\Lexcellent\me3\config\profiles"
+  ExecShell "open" "$LOCALAPPDATA\garyttierney\me3\config\profiles"
 FunctionEnd
 
 Page custom nsDialogsPage nsDialogsPageLeave
@@ -130,10 +130,10 @@ Page custom nsDialogsPage nsDialogsPageLeave
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
-!insertmacro MUI_LANGUAGE English
+!insertmacro MUI_LANGUAGE SimpChinese
 
 Function nsDialogsPage
-  !insertmacro MUI_HEADER_TEXT "me3 Configuration" "Configure me3 system-wide settings"
+  !insertmacro MUI_HEADER_TEXT "me3 配置" "配置 me3 系统设置"
 
 	nsDialogs::Create 1018
 	Pop $Dialog
@@ -145,7 +145,7 @@ Function nsDialogsPage
 	${NSD_CreateCheckbox} 0 30u 100% 10u "与me3开发人员分享崩溃报告？"
 	Pop $Checkbox
 
-	${NSD_CreateLabel} 0 0 100% 64u "me3 will upload crash reports to Sentry.io to alert the developers of frequent issues and help with triaging bug reports. This telemetry contains information about interactions with the me3 tool and the mods being loaded."
+	${NSD_CreateLabel} 0 0 100% 64u "me3 将把崩溃报告上传到Sentry.io，提醒开发人员经常出现的问题，并帮助分类错误报告。此遥测数据包含与 me3 工具和正在加载的模组交互的信息。"
 	Pop $Label
 
 	${If} $TelemetryEnabled == ${BST_CHECKED}
