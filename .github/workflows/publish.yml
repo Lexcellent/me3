@@ -214,7 +214,6 @@ jobs:
           path: |
             out/
             dist/
-#            crates/**/*.cdx.json
             installer.sh
 
   test-windows:
