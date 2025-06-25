@@ -5,7 +5,7 @@ component_management:
       - type: patch # in this case every component that doens't have a status defined will have a project type one
         target: auto
         branches:
-          - '!main'
+          - '!my'
   individual_components:
     - component_id: host # this is an identifier that should not be changed
       name: host # this is a display name, and can be changed freely
@@ -28,7 +28,7 @@ coverage:
         flags:
           - unit
         branches:
-          - main
+          - my
         if_ci_failed: error
         informational: true
         only_pulls: false
