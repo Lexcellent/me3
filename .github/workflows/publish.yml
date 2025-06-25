@@ -206,6 +206,8 @@ jobs:
 #        run: |
 #          cargo cyclonedx --target=x86_64-pc-windows-msvc --target-in-filename --format=json
 #          cargo cyclonedx --target=x86_64-unknown-linux-musl --target-in-filename --format=json
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Show dist directory contents
         run: |
           cd dist/
