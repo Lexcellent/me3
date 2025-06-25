@@ -67,6 +67,10 @@ pub struct LaunchArgs {
     #[clap(long("suspend"), action = ArgAction::SetTrue)]
     suspend: bool,
 
+    /// Skip initializing Steam within the launcher?
+    #[clap(long("skip-steam-init"), action = ArgAction::SetTrue)]
+    skip_steam_init: bool,
+
     /// An optional path to the game executable to launch with mod support. Uses the default
     /// launcher if not present.
     #[clap(short('e'), long, help_heading = "Game selection", value_hint = clap::ValueHint::FilePath)]
@@ -124,25 +128,36 @@ impl Launcher for CompatToolLauncher {
     fn into_command(self, launcher: PathBuf) -> color_eyre::Result<Command> {
         // TODO: parse this from appcache/appinfo.vcf
         let sniper_id = 1628350;
-        let proton_id = match self.tool.name.expect("must have a name").as_str() {
-            "proton_experimental" => 1493710,
-            "proton_hotfix" => 2180100,
-            "proton_9" => 2805730,
-            _ => return Err(eyre!("unrecognised compat tool")),
-        };
-
         let (sniper_app, sniper_library) = self
             .steam
             .find_app(sniper_id)?
             .ok_or_eyre("unable to find Steam Linux Runtime")?;
 
-        let (proton_app, proton_library) = self
+        let tool_name = self.tool.name.ok_or_eyre("compat tool must have a name")?;
+        let custom_tool_path = self
             .steam
-            .find_app(proton_id)?
-            .ok_or_eyre("configured compat tool isn't installed")?;
+            .path()
+            .join(format!("compatibilitytools.d/{tool_name}"));
+
+        let proton_path = if std::fs::exists(&custom_tool_path)? {
+            custom_tool_path
+        } else {
+            let proton_id = match tool_name.as_str() {
+                "proton_experimental" => 1493710,
+                "proton_hotfix" => 2180100,
+                "proton_9" => 2805730,
+                _ => return Err(eyre!("unrecognised compat tool")),
+            };
+
+            let (proton_app, proton_library) = self
+                .steam
+                .find_app(proton_id)?
+                .ok_or_eyre("configured compat tool isn't installed")?;
+
+            proton_library.resolve_app_dir(&proton_app)
+        };
 
         let sniper_path = sniper_library.resolve_app_dir(&sniper_app);
-        let proton_path = proton_library.resolve_app_dir(&proton_app);
 
         let mut command = Command::new(sniper_path.join("run"));
 
@@ -161,6 +176,13 @@ impl Launcher for CompatToolLauncher {
             self.library
                 .path()
                 .join(format!("steamapps/compatdata/{}", self.app_id)),
+        );
+
+        // TODO(gtierney): unsure if this works for every scenario, but it shouldn't break anything
+        // where it doesn't
+        command.env(
+            "LD_PRELOAD",
+            self.steam.path().join("ubuntu12_64/gameoverlayrenderer.so"),
         );
 
         Ok(command)
@@ -361,6 +383,7 @@ pub fn launch(
         game: game.into(),
         packages: ordered_packages,
         natives: ordered_natives,
+        skip_steam_init: args.skip_steam_init,
         suspend: args.suspend,
     };
 
@@ -428,6 +451,7 @@ pub fn launch(
 
     injector_command.env("SteamAppId", app_id.to_string());
     injector_command.env("SteamGameId", app_id.to_string());
+    injector_command.env("SteamOverlayGameId", app_id.to_string());
 
     info!(?injector_command, "running injector command");
 
@@ -455,6 +479,8 @@ pub fn launch(
             if !line.is_empty() {
                 eprint!("{line}");
             }
+
+            std::thread::yield_now();
         }
 
         let _ = launcher_proc.kill();

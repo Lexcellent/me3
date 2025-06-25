@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <p align="center">
-    <img src="distribution/assets/me3.png" alt="me3 icon />
+    <img src="distribution/assets/me3.png" alt="me3 icon" />
   </p>
   <h2 align="center">me<sup>3</sup></h2>
 
@@ -22,14 +22,16 @@
   </p>
 
 [![Discussions][discussions-shield]][discussions-url]
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![MIT + Apache-2.0 License][license-shield]][license-url]
+![GitHub Downloads (all assets, all releases)][downloads-badge]
+![GitHub commits since latest release][commits-badge]
 
 </div>
 
 
 - [About The Project](#about-the-project)
+  - [Supported platforms](#supported-platforms)
+  - [Supported games](#supported-games)
 - [Installation](#installation)
 - [Developer Quickstart](#developer-quickstart)
   - [Prerequisites](#prerequisites)
@@ -43,13 +45,20 @@
 
 ## About The Project
 
-me3 is a tool that extends the functionality of FROMSOTWARE games running on Windows and Linux via Proton.
+me3 is a tool that extends the functionality of FROMSOTWARE games.
 
-Currently it supports the following titles:
+### Supported platforms
+
+- Windows
+- Linux via Proton
+- macOS via [CrossOver®](https://www.codeweavers.com/crossover)
+
+### Supported games
 
 - ELDEN RING
-- ELDEN RING: NIGHTREIGN
+- ELDEN RING NIGHTREIGN
 - Armored Core VI: Fires of Rubicon
+- Sekiro: Shadows Die Twice
 
 ## Installation
 
@@ -125,7 +134,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
 
-With the exception of the [me3 logo](distribution/assets/me3.ico), this project is distributed under the terms of both the Apache Software License 2.0 and MIT License. See [LICENSE-APACHE] and [LICENSE-MIT] for more information.
+With the exception of the [me3 logo](distribution/assets/me3.ico), this project is distributed under the terms of both the Apache Software License 2.0 and MIT License. See [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) for more information.
 
 The me3 logo is not available under any license - all rights are reserved.
 
@@ -168,3 +177,5 @@ Discussions Board: [https://github.com/garyttierney/me3/discussions](https://git
 [forks-url]: https://github.com/garyttierney/me3/network/members
 [license-shield]: https://img.shields.io/badge/license-MIT%2FApache--2.0-green?style=flat
 [license-url]: https://github.com/garyttierney/me3/blob/main/LICENSE-APACHE
+[downloads-badge]: https://img.shields.io/github/downloads/garyttierney/me3/total
+[commits-badge]: https://img.shields.io/github/commits-since/garyttierney/me3/latest
