@@ -53,20 +53,20 @@ jobs:
             dist/me3-windows-amd64.zip
             dist/me3-linux-amd64.tar.gz
 
-      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
-        with:
-          subject-path: "target/x86_64-pc-windows-msvc/release/me3_mod_host.dll"
-          sbom-path: "crates/mod-host/me3-mod-host_x86_64-pc-windows-msvc.cdx.json"
-
-      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
-        with:
-          subject-path: "target/x86_64-pc-windows-msvc/release/me3-launcher.exe"
-          sbom-path: "crates/launcher/me3-launcher_x86_64-pc-windows-msvc.cdx.json"
-
-      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
-        with:
-          subject-path: "target/x86_64-pc-windows-msvc/release/me3.exe"
-          sbom-path: "crates/cli/me3-cli_x86_64-pc-windows-msvc.cdx.json"
+#      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
+#        with:
+#          subject-path: "target/x86_64-pc-windows-msvc/release/me3_mod_host.dll"
+#          sbom-path: "crates/mod-host/me3-mod-host_x86_64-pc-windows-msvc.cdx.json"
+#
+#      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
+#        with:
+#          subject-path: "target/x86_64-pc-windows-msvc/release/me3-launcher.exe"
+#          sbom-path: "crates/launcher/me3-launcher_x86_64-pc-windows-msvc.cdx.json"
+#
+#      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
+#        with:
+#          subject-path: "target/x86_64-pc-windows-msvc/release/me3.exe"
+#          sbom-path: "crates/cli/me3-cli_x86_64-pc-windows-msvc.cdx.json"
 
       - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
         with:
