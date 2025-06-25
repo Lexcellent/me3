@@ -68,10 +68,10 @@ jobs:
 #          subject-path: "target/x86_64-pc-windows-msvc/release/me3.exe"
 #          sbom-path: "crates/cli/me3-cli_x86_64-pc-windows-msvc.cdx.json"
 
-      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
-        with:
-          subject-path: "target/x86_64-unknown-linux-musl/release/me3"
-          sbom-path: "crates/cli/me3-cli_x86_64-unknown-linux-musl.cdx.json"
+#      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b # v2.4.0
+#        with:
+#          subject-path: "target/x86_64-unknown-linux-musl/release/me3"
+#          sbom-path: "crates/cli/me3-cli_x86_64-unknown-linux-musl.cdx.json"
       - uses: taiki-e/install-action@9ba3ac3fd006a70c6e186a683577abc1ccf0ff3a # v2.54.0
         with:
           tool: git-cliff

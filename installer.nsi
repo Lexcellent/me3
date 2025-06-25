@@ -3,7 +3,7 @@
 !include nsDialogs.nsh
 !include Integration.nsh
 
-!define PRODUCT "garyttierney\me3"
+!define PRODUCT "Lexcellent\me3"
 !define PRODUCT_URL "https://github.com/Lexcellent/me3"
 
 !define MUI_ICON "distribution/assets/me3.ico"
@@ -116,7 +116,7 @@ Function .onInit
 FunctionEnd
 
 Function onFinish
-  ExecShell "open" "$LOCALAPPDATA\garyttierney\me3\config\profiles"
+  ExecShell "open" "$LOCALAPPDATA\Lexcellent\me3\config\profiles"
 FunctionEnd
 
 Page custom nsDialogsPage nsDialogsPageLeave

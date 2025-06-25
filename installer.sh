@@ -346,7 +346,7 @@ main() {
     downloader "https://github.com/Lexcellent/me3/releases/download/$me3_version/me3-linux-amd64.tar.gz" "$_dir/$_distfile"
 
     if check_cmd gh; then
-        ensure gh attestation verify --owner garyttierney "$_dir/$_distfile" >/dev/null
+        ensure gh attestation verify --owner Lexcellent "$_dir/$_distfile" >/dev/null
         say "successfully verified $_distfile"
     fi
 
