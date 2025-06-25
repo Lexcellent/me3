@@ -206,7 +206,10 @@ jobs:
 #        run: |
 #          cargo cyclonedx --target=x86_64-pc-windows-msvc --target-in-filename --format=json
 #          cargo cyclonedx --target=x86_64-unknown-linux-musl --target-in-filename --format=json
-
+      - name: Show dist directory contents
+        run: |
+          cd dist/
+          ls -la
       - name: Upload artifacts
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
