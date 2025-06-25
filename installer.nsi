@@ -125,7 +125,7 @@ Page custom nsDialogsPage nsDialogsPageLeave
 !define MUI_FINISHPAGE_SHOWREADME "https://me3.readthedocs.io/"
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_FUNCTION onFinish
-!define MUI_FINISHPAGE_RUN_TEXT "Open the mod profile folder?"
+!define MUI_FINISHPAGE_RUN_TEXT "打开配置文件夹？"
 
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -142,7 +142,7 @@ Function nsDialogsPage
 		Abort
 	${EndIf}
 
-	${NSD_CreateCheckbox} 0 30u 100% 10u "Share crash reports with me3 developers?"
+	${NSD_CreateCheckbox} 0 30u 100% 10u "与me3开发人员分享崩溃报告？"
 	Pop $Checkbox
 
 	${NSD_CreateLabel} 0 0 100% 64u "me3 will upload crash reports to Sentry.io to alert the developers of frequent issues and help with triaging bug reports. This telemetry contains information about interactions with the me3 tool and the mods being loaded."
@@ -196,17 +196,6 @@ Section "Main Application" SEC01
     nsExec::Exec '"$INSTDIR\bin\me3.exe" profile create -g nr nightreign-default --package nightreign-mods'
     nsExec::Exec '"$INSTDIR\bin\me3.exe" profile create -g er eldenring-default --package eldenring-mods'
 
-    CreateDirectory "$SMPROGRAMS\me3"
-    CreateShortCut "$SMPROGRAMS\me3\ELDEN RING (me3).lnk" "$INSTDIR\bin\me3.exe" \
-      "launch --auto-detect -p eldenring-default" "$INSTDIR\assets\me3.ico" "" "" \
-      "" "Launch ELDEN RING with the eldenring-default mod profile"
-
-    CreateShortCut "$SMPROGRAMS\me3\NIGHTREIGN (me3).lnk" "$INSTDIR\bin\me3.exe" \
-      "launch --auto-detect -p nightreign-default" "$INSTDIR\assets\me3.ico" "" "" \
-      "" "Launch NIGHTREIGN with the nightreign-default mod profile"
-
-    !insertmacro CreateInternetShortcutWithIcon "$SMPROGRAMS\me3\Documentation.URL" "https://me3.readthedocs.io" "$INSTDIR\assets\me3.ico"
-
     ; Generate an uninstaller executable
     WriteUninstaller "$INSTDIR\uninstall.exe"
 
@@ -236,13 +225,11 @@ Section "Uninstall"
     Delete "$INSTDIR\CHANGELOG.md"
     Delete "$INSTDIR\README.txt"
     Delete "$INSTDIR\assets\me3.ico"
-    Delete "$SMPROGRAMS\me3\ELDEN RING (me3).lnk"
-    Delete "$SMPROGRAMS\me3\NIGHTREIGN (me3).lnk"
-    Delete "$SMPROGRAMS\me3\Documentation.URL"
 
-    RMDir "$SMPROGRAMS\me3"
     RMDir "$INSTDIR\assets"
+    RMDir "$INSTDIR\config"
     RMDir "$INSTDIR\bin"
+    RMDir "$INSTDIR"
 
     DeleteRegKey HKCU "$UNINSTALL_REG_KEY"
 SectionEnd
