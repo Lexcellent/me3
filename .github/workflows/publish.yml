@@ -68,6 +68,13 @@ jobs:
             out/me3-windows-amd64.zip
             out/me3-linux-amd64.tar.gz
 
+      - name: Create release
+        run: |
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions"
+            
+            ./releng/bin/create-release-assets --release v0.6.1
+
   test-windows:
     name: End-to-end tests (Windows)
     needs:
