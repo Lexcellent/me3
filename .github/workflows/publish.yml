@@ -15,6 +15,99 @@ permissions:
   contents: read
 
 jobs:
+  publish-installer:
+    name: Publish
+    runs-on: ubuntu-latest
+    needs:
+      - build-installer
+      - test-windows
+    if: github.event_name != 'pull_request'
+    permissions:
+      id-token: write
+      attestations: write
+      contents: write
+      actions: read
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@002fdce3c6a235733a90a27c80493a3241e56863 # v2.12.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: me3-artifacts
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
+        id: attest-installer
+        with:
+          subject-path: |
+            dist/me3_installer.exe
+            dist/me3-windows-amd64.zip
+            dist/me3-linux-amd64.tar.gz
+
+      - uses: taiki-e/install-action@9ba3ac3fd006a70c6e186a683577abc1ccf0ff3a # v2.54.0
+        with:
+          tool: git-cliff
+      - run: |
+          set -euxo pipefail
+          version="${{ needs.build-installer.outputs.version }}"
+          version=${version%"-prerelease"}
+          v=(${version//./ })
+          ((v[1]--))
+          prev_tag_name="v${v[0]}.${v[1]}.${v[2]}"
+          TAG="v${{ needs.build-installer.outputs.version }}"
+          echo "RELEASE_TAG=$TAG" >> "$GITHUB_ENV"
+          echo "RELEASE_IS_PRERELEASE=true" >> "$GITHUB_ENV"
+
+          if gh release view "$TAG" -R Lexcellent/me3 ; then
+              gh release delete "$TAG" -R Lexcellent/me3 -y --cleanup-tag
+              sleep 15s
+          fi
+
+          export CHANGES=$(git cliff --strip all "$prev_tag_name..HEAD")
+          release_notes=$(./releng/bin/release-notes "$TAG")
+
+          gh release create "$TAG" -p -n "$release_notes" --target main
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+      - run: |
+          echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> "$GITHUB_ENV"
+          echo "RELEASE_IS_PRERELEASE=false" >> "$GITHUB_ENV"
+        if: github.event_name == 'release'
+
+      - run: |
+          echo "release_tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+          echo "is_prerelease=$RELEASE_IS_PRERELEASE" >> "$GITHUB_OUTPUT"
+        id: collect-release-info
+
+      - name: Update tag in Linux installer
+        run: |
+          sed -i "s/INSTALLER_VERSION=.*/INSTALLER_VERSION=${{ steps.collect-release-info.outputs.release_tag }}/" installer.sh
+
+      - name: Copy SLSA provenance for release upload
+        run: |
+          mv "$BUNDLE_PATH" attestations.intoto.jsonl
+        env:
+          BUNDLE_PATH: ${{ steps.attest-installer.outputs.bundle-path }}
+
+      - name: Upload installer to release
+        run: >-
+          gh release upload --clobber -R Lexcellent/me3 "${{ steps.collect-release-info.outputs.release_tag }}"
+          'dist/me3_installer.exe#me3_installer.exe (Installer for Windows)'
+          'installer.sh#installer.sh (Installer for Linux)'
+          'dist/me3-windows-amd64.zip#me3-windows-amd64.zip (Portable distribution for Windows)'
+          'dist/me3-linux-amd64.tar.gz#me3-linux-amd64.tar.gz (Portable distribution for LInux)'
+          attestations.intoto.jsonl
+        env:
+          GH_TOKEN: ${{ github.token }}
   build-installer:
     name: Installer
     runs-on: ubuntu-latest
@@ -59,6 +152,20 @@ jobs:
         env:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
 
+      - uses: taiki-e/install-action@9ba3ac3fd006a70c6e186a683577abc1ccf0ff3a # v2.54.0
+        with:
+          tool: cargo-cyclonedx
+
+#      - name: Generate SBOMs
+#        run: |
+#          cargo cyclonedx --target=x86_64-pc-windows-msvc --target-in-filename --format=json
+#          cargo cyclonedx --target=x86_64-unknown-linux-musl --target-in-filename --format=json
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Show dist directory contents
+        run: |
+          cd dist/
+          ls -la
       - name: Upload artifacts
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
