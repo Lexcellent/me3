@@ -46,9 +46,9 @@ jobs:
         id: attest-installer
         with:
           subject-path: |
-            dist/me3_installer.exe
-            dist/me3-windows-amd64.zip
-            dist/me3-linux-amd64.tar.gz
+            me3_installer.exe
+            me3-windows-amd64.zip
+            me3-linux-amd64.tar.gz
 
       - uses: taiki-e/install-action@9ba3ac3fd006a70c6e186a683577abc1ccf0ff3a # v2.54.0
         with:
@@ -101,10 +101,10 @@ jobs:
       - name: Upload installer to release
         run: >-
           gh release upload --clobber -R Lexcellent/me3 "${{ steps.collect-release-info.outputs.release_tag }}"
-          'dist/me3_installer.exe#me3_installer.exe (Installer for Windows)'
+          'me3_installer.exe#me3_installer.exe (Installer for Windows)'
           'installer.sh#installer.sh (Installer for Linux)'
-          'dist/me3-windows-amd64.zip#me3-windows-amd64.zip (Portable distribution for Windows)'
-          'dist/me3-linux-amd64.tar.gz#me3-linux-amd64.tar.gz (Portable distribution for LInux)'
+          'me3-windows-amd64.zip#me3-windows-amd64.zip (Portable distribution for Windows)'
+          'me3-linux-amd64.tar.gz#me3-linux-amd64.tar.gz (Portable distribution for LInux)'
           attestations.intoto.jsonl
         env:
           GH_TOKEN: ${{ github.token }}
