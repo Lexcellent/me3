@@ -29,6 +29,6 @@ jobs:
 
           GITHUB_TOKEN="$GH_TOKEN" ./releng/bin/create-release --draft
           
-          ./releng/bin/create-release-assets --release v0.6.1
+          ./releng/bin/create-release-assets --release v0.6.1 --signed
         env:
           GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
