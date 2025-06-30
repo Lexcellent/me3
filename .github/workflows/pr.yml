@@ -1,7 +1,7 @@
 on:
   pull_request_target:
     branches:
-      - main
+      - my
 
 name: Pull Request
 concurrency:

@@ -2,7 +2,7 @@
 # https://git-cliff.org/docs/configuration
 
 [remote.github]
-owner = "garyttierney"
+owner = "Lexcellent"
 repo = "me3"
 
 [changelog]
@@ -19,7 +19,7 @@ body = """
 {%- if not version %}
 ## [unreleased]
 {% else -%}
-## me3 - [{{ version }}](https://github.com/garyttierney/me3/releases/{{version}}) - {{ timestamp | date(format="%Y-%m-%d") }}
+## me3 - [{{ version }}](https://github.com/Lexcellent/me3/releases/{{version}}) - {{ timestamp | date(format="%Y-%m-%d") }}
 {% endif -%}
 
 {% macro body(commit) -%}
@@ -31,7 +31,7 @@ body = """
 {% endmacro -%}
 
 {% macro commit(commit) -%}
-- [{{ commit.id | truncate(length=7, end="") }}]({{ "https://github.com/garyttierney/me3/commit/" ~ commit.id }}) \
+- [{{ commit.id | truncate(length=7, end="") }}]({{ "https://github.com/Lexcellent/me3/commit/" ~ commit.id }}) \
   {% if commit.scope %} \
   *({{commit.scope | default(value = "uncategorized") | lower }})* \
   {% endif %}\
@@ -148,7 +148,7 @@ commit_parsers = [
 # Exclude commits that are not matched by any commit parser.
 filter_commits = false
 # An array of link parsers for extracting external references, and turning them into URLs, using regex.
-link_parsers = [{ pattern = "#(\\d+)", href = "https://github.com/garyttierney/me3/issues/$1" }]
+link_parsers = [{ pattern = "#(\\d+)", href = "https://github.com/Lexcellent/me3/issues/$1" }]
 # Include only the tags that belong to the current branch.
 use_branch_tags = false
 

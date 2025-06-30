@@ -20,7 +20,8 @@ use windows::Win32::{
     System::Threading::GetCurrentProcess,
 };
 
-use crate::{game::Game, steam::require_steam};
+use crate::game::Game;
+// use crate::{game::Game, steam::require_steam};
 
 mod game;
 mod steam;
@@ -43,11 +44,11 @@ fn run() -> LauncherResult<()> {
         args.exe, args.host_dll
     );
 
-    if !config.skip_steam_init {
-        require_steam(&args.exe)?;
-    } else {
-        warn!("skpping steam initialization, no guarantee Steam game will launch successfully");
-    }
+    // if !config.skip_steam_init {
+    //     require_steam(&args.exe)?;
+    // } else {
+    //     warn!("skpping steam initialization, no guarantee Steam game will launch successfully");
+    // }
 
     let game_path = args.exe.parent();
     let game = Game::launch(&args.exe, game_path)?;
