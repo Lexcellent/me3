@@ -44,14 +44,16 @@ pub fn add_to_path() -> color_eyre::Result<()> {
 }
 
 pub fn update() -> color_eyre::Result<()> {
-    const RELEASE_URI: &str = "https://api.github.com/repos/Lexcellent/me3/releases/latest";
+    const RELEASE_URI: &str = "https://api.github.com/repos/garyttierney/me3/releases/latest";
     let response = ureq::get(RELEASE_URI)
         .header("Accept", "application/vnd.github.v3+json")
         .header("User-Agent", "me3-cli")
         .call()?;
 
     if !response.status().is_success() {
-        error!("unable to check latest version, check https://github.com/Lexcellent/me3/releases/latest");
+        error!(
+            "unable to check latest version, check https://github.com/garyttierney/me3/releases/latest"
+        );
         return Ok(());
     }
 
@@ -71,7 +73,7 @@ pub fn update() -> color_eyre::Result<()> {
         println!("New version is available: {latest_version}");
 
         let installer_url = format!(
-            "https://github.com/Lexcellent/me3/releases/download/v{latest_version}/me3_installer.exe"
+            "https://github.com/garyttierney/me3/releases/download/v{latest_version}/me3_installer.exe"
         );
 
         info!(installer_url, "Downloading installer");
