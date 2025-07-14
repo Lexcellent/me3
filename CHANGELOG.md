@@ -4,14 +4,7 @@ All notable changes to this project will be documented in this file.
 <!-- markdown-link-check-disable -->
 <!-- ignore lint rules that are often triggered by content generated from commits / git-cliff -->
 <!-- markdownlint-disable line-length no-bare-urls ul-style emphasis-style -->
-## me3 - [v0.6.1](https://github.com/garyttierney/me3/releases/v0.6.1) - 2025-06-30
-
-### 🐛 Bug Fixes
-
-- [9c99ad9](https://github.com/garyttierney/me3/commit/9c99ad95a1191c4dd31876afcd7cd5343388a66b) Don't overwrite profiles unless requested in [#264](https://github.com/garyttierney/me3/pull/264)
-
-
-## me3 - [v0.6.0](https://github.com/garyttierney/me3/releases/v0.6.0) - 2025-06-29
+## me3 - [v0.7.0](https://github.com/garyttierney/me3/releases/v0.7.0) - 2025-07-10
 
 ### 🚀 Features
 
@@ -30,6 +23,10 @@ All notable changes to this project will be documented in this file.
 
 
 - [de5a57c](https://github.com/garyttierney/me3/commit/de5a57cabfdc096bb626efaaa46bd4ae521ddd47)  *(sekiro)* Add Sekiro as a supported game
+
+
+
+- [c8f1c55](https://github.com/garyttierney/me3/commit/c8f1c55f1c134d3a5f63e0db56d2ff3ab24f6519) Setup translations for docs site with Crowdin in [#289](https://github.com/garyttierney/me3/pull/289)
 
 
 
@@ -68,100 +65,6 @@ All notable changes to this project will be documented in this file.
   > and display a warning to the user that the mod may not be working as
   > expected.
 
-
-### 🐛 Bug Fixes
-
-- [c93a84d](https://github.com/garyttierney/me3/commit/c93a84d242ccfb5b2f939419626a51222bf92b76)  *(cli)* Platform-specific behavior in [#194](https://github.com/garyttierney/me3/pull/194)
-
-
-
-- [3f56843](https://github.com/garyttierney/me3/commit/3f568435bde7e24844d9625b9b39189101d449fe)  *(cli)* Correctly handle `--exe` flag on Windows and Linux
-
-
-
-- [c85342c](https://github.com/garyttierney/me3/commit/c85342c9a47f60c9856b138a1eb92c7eb09aabeb)  *(cli)* Enable ANSI escape codes in Windows terminals
-
-
-
-- [4049489](https://github.com/garyttierney/me3/commit/404948953e0d052f7465df82d38f644c305ebca3)  *(host)* Override assets from ER DLC ebls in [#220](https://github.com/garyttierney/me3/pull/220)
-
-
-  > Fixes files found exclusively in DLC.bdt (SOTE) not being overriden by me3.
-
-
-- [cddf133](https://github.com/garyttierney/me3/commit/cddf1334acdfa5e3a3612ee4c1a40d3f588ff440)  *(host)* Use a more suitable memory location for storing thunk data pointers in [#201](https://github.com/garyttierney/me3/pull/201)
-
-
-
-- [d08f2e7](https://github.com/garyttierney/me3/commit/d08f2e7374fbf82a1a78c3c544a4344fa604b869)  *(host)* Use NtTib.ArbitraryUserPointer to store thunk data
-
-
-
-- [15052cb](https://github.com/garyttierney/me3/commit/15052cbdac59ebce994642fb8f94103d620756f2)  *(linux)* Prevent prompt spam when no tty is available in [#184](https://github.com/garyttierney/me3/pull/184)
-
-
-  > Make sure we have an interactive terminal before prompting for input.
-
-  > Fixes #183.
-
-- [ffd74b4](https://github.com/garyttierney/me3/commit/ffd74b4570b8fd54a74836ede00b4f74ff946820)  *(windows)* Correct registry key during uninstall in [#200](https://github.com/garyttierney/me3/pull/200)
-
-
-  > Fixes #188.
-
-- [b148189](https://github.com/garyttierney/me3/commit/b1481892608707fa176c39eb6a0ce81959c0c544) Excessive CPU utilization from console logs in [#251](https://github.com/garyttierney/me3/pull/251)
-
-
-
-- [479bfdd](https://github.com/garyttierney/me3/commit/479bfdd75fbaaaf797117ba5884977e9e6d4bab2) Ensure 64-bit overlay is injected for Proton in [#227](https://github.com/garyttierney/me3/pull/227)
-
-
-  > Fixes #223.
-
-- [f0083b2](https://github.com/garyttierney/me3/commit/f0083b288a3c410b65c068f6c543db9e60a12ea4) Don't treat filesystem scanning errors as fatal in [#224](https://github.com/garyttierney/me3/pull/224)
-
-
-
-- [1a0e488](https://github.com/garyttierney/me3/commit/1a0e488c842e4631bfc49cd331bc6800140da1e8) Reduce overhead of asset hook logging in [#218](https://github.com/garyttierney/me3/pull/218)
-
-
-
-- [673905e](https://github.com/garyttierney/me3/commit/673905ed7e7b15207f4595a3f1aa3de108f86be1) Copy-paste errors in Linux portable dist in [#215](https://github.com/garyttierney/me3/pull/215)
-
-
-
-- [729dbba](https://github.com/garyttierney/me3/commit/729dbba9858fd8b1a830e6aa0b6846ce5b189025) Add profileVersion='v1' to example profiles
-
-
-
-- [68880cf](https://github.com/garyttierney/me3/commit/68880cfdadd4fcffc3d660a42deb1d8f773fefde) Include 'launch' verb in example portable launchers
-
-
-
-- [7c76bb2](https://github.com/garyttierney/me3/commit/7c76bb21454b27b218d5a8333f6323a42fde40c8) Update Linux installer to use portable distribution in [#214](https://github.com/garyttierney/me3/pull/214)
-
-
-  > The Linux distribution previously downloaded individual binaries from
-  > the GitHub release that are no longer available. This update downloads
-  > the tarball instead and extracts the needed components from there.
-
-
-- [1ed9c97](https://github.com/garyttierney/me3/commit/1ed9c97a79613aac34dd30850ed0917ae96da4fb) Defer native loading until Steam has initialized in [#212](https://github.com/garyttierney/me3/pull/212)
-
-
-
-### 📚 Documentation
-
-- [5370cf4](https://github.com/garyttierney/me3/commit/5370cf416fb07977beb3c675aeec3c49f5128239) Update supported games/platforms in README in [#230](https://github.com/garyttierney/me3/pull/230)
-
-
-
-- [1e4a31d](https://github.com/garyttierney/me3/commit/1e4a31d361de5ec03c01076625873a624b7d1762) Add downloads and recent changes badge to README
-
-
-## me3 - [v0.5.0](https://github.com/garyttierney/me3/releases/v0.5.0) - 2025-06-14
-
-### 🚀 Features
 
 - [0b79c75](https://github.com/garyttierney/me3/commit/0b79c75539318d99b6fb13c39119c79d84b317c2) Suspended attach in [#142](https://github.com/garyttierney/me3/pull/142)
 
@@ -218,7 +121,88 @@ All notable changes to this project will be documented in this file.
   > a release version.
 
 
+- [31e48cd](https://github.com/garyttierney/me3/commit/31e48cdb9a30d5f3b20a64219c79a6db45ec6520) Add icon and diagnostics verb to windows shell in [#85](https://github.com/garyttierney/me3/pull/85)
+
+
+
+- [2abdbf1](https://github.com/garyttierney/me3/commit/2abdbf1d95f1aea69ff9b7922b58fa8240eba8e2) Use icon for me3 profiles on windows
+
+
+
+- [6366a58](https://github.com/garyttierney/me3/commit/6366a58da10c42357f772ecb47e196f58b739f50) Log rotation for profile logs
+
+
+  > Log files are now created in a per-profile directory and rotated
+  > automatically after 5 log files are created. Additionally, only one
+  > profile may be speciied to `me3 launch`.
+
+
+- [8f145b5](https://github.com/garyttierney/me3/commit/8f145b570f30ddf7685f937bfe00ccf5b0d7253d) Add 'path' as an alias to 'source' for packages
+
+
+
+- [f9527f7](https://github.com/garyttierney/me3/commit/f9527f7ac450e86c471365c4d378daced72b7fbd) Support for armored core 6
+
+
+
+- [7a7d04b](https://github.com/garyttierney/me3/commit/7a7d04b63389ace2bbcb7b70891b2a20229ca7ba) Add me3 command-line interface in [#48](https://github.com/garyttierney/me3/pull/48)
+
+
+  > Introduces a new command-line interface for me3 that can be used to
+  > manage profiles, check the status of the me3 install, and run the
+  > launcher. See help output of `me3 --help` for more information.
+
+  > Commands supported:
+
+  >     me3 launch
+  >     me3 info
+  >     me3 profile show
+  >     me3 profile create
+  >     me3 profile list
+
+  > This also runs as a native binary on Linux hosts and will run the
+  > correct commandds uner the hood to set Proton up.
+
+
 ### 🐛 Bug Fixes
+
+- [c93a84d](https://github.com/garyttierney/me3/commit/c93a84d242ccfb5b2f939419626a51222bf92b76)  *(cli)* Platform-specific behavior in [#194](https://github.com/garyttierney/me3/pull/194)
+
+
+
+- [3f56843](https://github.com/garyttierney/me3/commit/3f568435bde7e24844d9625b9b39189101d449fe)  *(cli)* Correctly handle `--exe` flag on Windows and Linux
+
+
+
+- [c85342c](https://github.com/garyttierney/me3/commit/c85342c9a47f60c9856b138a1eb92c7eb09aabeb)  *(cli)* Enable ANSI escape codes in Windows terminals
+
+
+
+- [4049489](https://github.com/garyttierney/me3/commit/404948953e0d052f7465df82d38f644c305ebca3)  *(host)* Override assets from ER DLC ebls in [#220](https://github.com/garyttierney/me3/pull/220)
+
+
+  > Fixes files found exclusively in DLC.bdt (SOTE) not being overriden by me3.
+
+
+- [cddf133](https://github.com/garyttierney/me3/commit/cddf1334acdfa5e3a3612ee4c1a40d3f588ff440)  *(host)* Use a more suitable memory location for storing thunk data pointers in [#201](https://github.com/garyttierney/me3/pull/201)
+
+
+
+- [d08f2e7](https://github.com/garyttierney/me3/commit/d08f2e7374fbf82a1a78c3c544a4344fa604b869)  *(host)* Use NtTib.ArbitraryUserPointer to store thunk data
+
+
+
+- [89880a0](https://github.com/garyttierney/me3/commit/89880a0adee917587112b546cf090e01022f02b3)  *(linux)* Correctly set mtime of tarball contents in [#308](https://github.com/garyttierney/me3/pull/308)
+
+
+  > Fixes #307
+
+- [15052cb](https://github.com/garyttierney/me3/commit/15052cbdac59ebce994642fb8f94103d620756f2)  *(linux)* Prevent prompt spam when no tty is available in [#184](https://github.com/garyttierney/me3/pull/184)
+
+
+  > Make sure we have an interactive terminal before prompting for input.
+
+  > Fixes #183.
 
 - [0c68dae](https://github.com/garyttierney/me3/commit/0c68daec648902a3dfa4574b6e5e80f26c703c34)  *(linux)* Fallback to global steam compat tool in [#134](https://github.com/garyttierney/me3/pull/134)
 
@@ -243,6 +227,103 @@ All notable changes to this project will be documented in this file.
 
 
 - [b6ade25](https://github.com/garyttierney/me3/commit/b6ade25a9141ca139f1308c7d30fc092473c8e7f)  *(overrides)* Normalize paths and clean up unnecessary branching
+
+
+
+- [ffd74b4](https://github.com/garyttierney/me3/commit/ffd74b4570b8fd54a74836ede00b4f74ff946820)  *(windows)* Correct registry key during uninstall in [#200](https://github.com/garyttierney/me3/pull/200)
+
+
+  > Fixes #188.
+
+- [050a41d](https://github.com/garyttierney/me3/commit/050a41d3033ea18bdd12dad789e7e7fe00ebe5fc) Respect native.enabled/package.enabled in [#299](https://github.com/garyttierney/me3/pull/299)
+
+
+  > Fixes #298
+
+- [5896daf](https://github.com/garyttierney/me3/commit/5896dafded3d3b88364a4bfadce24aca204bbf67) Validate mod profile filepaths in [#287](https://github.com/garyttierney/me3/pull/287)
+
+
+  > Skip invalid and nonexistent paths in mod profiles before passing them
+  > to the mod host, preventing hard errors.
+
+  > Closes #240
+
+- [a5e3db4](https://github.com/garyttierney/me3/commit/a5e3db4db6cbcc0b19d8da161450e605aa8a8325) Don't stop path discovery on every filesystem error
+
+
+
+- [c5fb8cc](https://github.com/garyttierney/me3/commit/c5fb8cc8a64d6178bb9eb0bd78436af310963890) Exclude nonexistent paths and warn the user
+
+
+
+- [c12976d](https://github.com/garyttierney/me3/commit/c12976dcc7a0695adefc7f4b52cbc12d7fd479be) Don't block shutdown with monitor thread in [#285](https://github.com/garyttierney/me3/pull/285)
+
+
+  > This exists purely to signal minidump crash events, which are currently
+  > not enabled in the latest release. Get rid of the infrastructure for
+  > handling it via pipes, and we'll use `WaitForMultipleObjects` on the
+  > process/crash event.
+
+  > Additionally switch the mod host to logging to `stdout`, so we capture
+  > logs from any other DLL mods in use.
+
+  > Fixes #270.
+
+- [aa10096](https://github.com/garyttierney/me3/commit/aa10096e16f715871ba9c4db50f9608c8ff27f22) Add singular profile aliases for packages/natives in [#283](https://github.com/garyttierney/me3/pull/283)
+
+
+
+- [c38f7e6](https://github.com/garyttierney/me3/commit/c38f7e675a0e84b33037ac7a5658716e4c3019b0) Add .sh extension to example Linux scripts in [#282](https://github.com/garyttierney/me3/pull/282)
+
+
+  > Closes #280
+
+- [bed1c98](https://github.com/garyttierney/me3/commit/bed1c980da385e02c4cab436686bb73de18ceaf5) Version list in GitHub issue template in [#278](https://github.com/garyttierney/me3/pull/278)
+
+
+
+- [9c99ad9](https://github.com/garyttierney/me3/commit/9c99ad95a1191c4dd31876afcd7cd5343388a66b) Don't overwrite profiles unless requested in [#264](https://github.com/garyttierney/me3/pull/264)
+
+
+
+- [b148189](https://github.com/garyttierney/me3/commit/b1481892608707fa176c39eb6a0ce81959c0c544) Excessive CPU utilization from console logs in [#251](https://github.com/garyttierney/me3/pull/251)
+
+
+
+- [479bfdd](https://github.com/garyttierney/me3/commit/479bfdd75fbaaaf797117ba5884977e9e6d4bab2) Ensure 64-bit overlay is injected for Proton in [#227](https://github.com/garyttierney/me3/pull/227)
+
+
+  > Fixes #223.
+
+- [f0083b2](https://github.com/garyttierney/me3/commit/f0083b288a3c410b65c068f6c543db9e60a12ea4) Don't treat filesystem scanning errors as fatal in [#224](https://github.com/garyttierney/me3/pull/224)
+
+
+
+- [1a0e488](https://github.com/garyttierney/me3/commit/1a0e488c842e4631bfc49cd331bc6800140da1e8) Reduce overhead of asset hook logging in [#218](https://github.com/garyttierney/me3/pull/218)
+
+
+
+- [673905e](https://github.com/garyttierney/me3/commit/673905ed7e7b15207f4595a3f1aa3de108f86be1) Copy-paste errors in Linux portable dist in [#215](https://github.com/garyttierney/me3/pull/215)
+
+
+
+- [729dbba](https://github.com/garyttierney/me3/commit/729dbba9858fd8b1a830e6aa0b6846ce5b189025) Add profileVersion='v1' to example profiles
+
+
+
+- [68880cf](https://github.com/garyttierney/me3/commit/68880cfdadd4fcffc3d660a42deb1d8f773fefde) Include 'launch' verb in example portable launchers
+
+
+
+- [7c76bb2](https://github.com/garyttierney/me3/commit/7c76bb21454b27b218d5a8333f6323a42fde40c8) Update Linux installer to use portable distribution in [#214](https://github.com/garyttierney/me3/pull/214)
+
+
+  > The Linux distribution previously downloaded individual binaries from
+  > the GitHub release that are no longer available. This update downloads
+  > the tarball instead and extracts the needed components from there.
+
+
+- [1ed9c97](https://github.com/garyttierney/me3/commit/1ed9c97a79613aac34dd30850ed0917ae96da4fb) Defer native loading until Steam has initialized in [#212](https://github.com/garyttierney/me3/pull/212)
 
 
 
@@ -396,6 +477,238 @@ All notable changes to this project will be documented in this file.
   > as it was assigned. This fix `mem::forget`s its RAII guard.
 
 
+- [3e45e35](https://github.com/garyttierney/me3/commit/3e45e352f1cc5c9d088d09f384df5f84832ffa0e) Allow blank issues on GH
+
+
+
+- [592d3be](https://github.com/garyttierney/me3/commit/592d3beb1ef3c9df454f4eea72ed8f531560bef7) Remove tracing setup log line
+
+
+
+- [1aeed8b](https://github.com/garyttierney/me3/commit/1aeed8b2efc040b9bf301ffdb65d7f718d287eee) Sentry propagation
+
+
+
+- [0bfc838](https://github.com/garyttierney/me3/commit/0bfc8381b79585c166735e94d85562ba575398e7) Don't create log folders with profile extensions
+
+
+
+- [2f15fae](https://github.com/garyttierney/me3/commit/2f15faeb37252d556aaaf3742f4938f7db3f775a) Relax formatting of log files
+
+
+
+- [8918f3e](https://github.com/garyttierney/me3/commit/8918f3eac84d6d22be5c27365b5427e9d9a4b16a) Console writing for cli
+
+
+
+- [49c6374](https://github.com/garyttierney/me3/commit/49c637462e6e767b066b2e654a79eb5ca10dfd6b) Don't rotate files that aren't log files
+
+
+
+- [62768ab](https://github.com/garyttierney/me3/commit/62768ab1ec52ca248fd4c2ddfe89bfc50616c829) Properly associate telemetry with sentry releases
+
+
+
+- [bc83a08](https://github.com/garyttierney/me3/commit/bc83a0899de66cf85467f34dbec746f9d297d65f) Disable link checking in release notes template
+
+
+
+- [179de3a](https://github.com/garyttierney/me3/commit/179de3a1dcb25b30dd4fd02dcbcc8e3124aa8a98) Typo in README
+
+
+
+- [378cd00](https://github.com/garyttierney/me3/commit/378cd006fcdf2b5d1dcdaa07de98100d0d37e3e6) Copy-pasted error message
+
+
+
+- [0d886bf](https://github.com/garyttierney/me3/commit/0d886bf9ae5f8302b66f16b2fae670b7cd6a2d42) Enum values and `ReadEbl`
+
+
+
+- [2c3e005](https://github.com/garyttierney/me3/commit/2c3e0051c61db2fb185985c58f5f99bac5f3bfba) Release note generation and PR creation in [#62](https://github.com/garyttierney/me3/pull/62)
+
+
+
+- [c466eef](https://github.com/garyttierney/me3/commit/c466eef802a317d736b2fcad7e51fa54942a7f9e) Default profile directory resolution in [#64](https://github.com/garyttierney/me3/pull/64)
+
+
+
+- [12a5404](https://github.com/garyttierney/me3/commit/12a54047a53e2481deef9f536a592c370106f925) Typo in attestation output
+
+
+
+- [64698ca](https://github.com/garyttierney/me3/commit/64698ca5e3c704f42475d559f7407be16354f760) Some typos and add spellchecking to CI in [#63](https://github.com/garyttierney/me3/pull/63)
+
+
+
+- [4921487](https://github.com/garyttierney/me3/commit/4921487c917fe58558f2683253b78473ddbf5a99) Dependency submission
+
+
+
+- [8dff588](https://github.com/garyttierney/me3/commit/8dff5886e1dfc01637943fc589947a0161369533) Version constraint of workspace packages in [#56](https://github.com/garyttierney/me3/pull/56)
+
+
+
+- [a995c81](https://github.com/garyttierney/me3/commit/a995c817176b2975fa1551c892a8fe48ba569698) More dead links
+
+
+
+- [d9b5bf1](https://github.com/garyttierney/me3/commit/d9b5bf14616c1836604c32d0bab178a419193396) Dead-links in configuration-reference
+
+
+
+- [2f1e7a1](https://github.com/garyttierney/me3/commit/2f1e7a16313dd530faeb41e0fb706ace66ba2cea) Dead links
+
+
+
+- [1e2f8d6](https://github.com/garyttierney/me3/commit/1e2f8d66964867dd2bfa35b5456151248a4e6e46) Lints
+
+
+
+- [40f6f65](https://github.com/garyttierney/me3/commit/40f6f6599e3d1db5181f96772ca01cbfbbacacfb) Me3 profile show command
+
+
+
+- [d8efb8c](https://github.com/garyttierney/me3/commit/d8efb8cce4da1f1277b2651c845ee7c745359eb1) Zombie me3-launcher processes
+
+
+
+- [3592721](https://github.com/garyttierney/me3/commit/3592721098a6e0840d8170ae94cc3b6bf856d545) Windows installation registry key name
+
+
+
+- [d70925a](https://github.com/garyttierney/me3/commit/d70925a006d6edb13350065815fc2b02e121f4d4) Path to me3 installer in publish action
+
+
+
+- [527b336](https://github.com/garyttierney/me3/commit/527b336def6cb1dc556bd6eea2afcd89bd368dba) Args to SBOM upload
+
+
+
+- [4e40e27](https://github.com/garyttierney/me3/commit/4e40e278d207dc0412c3883a0fd396a716152055) Generation of Rust SBOMs
+
+
+
+- [c70c1ca](https://github.com/garyttierney/me3/commit/c70c1ca06231a206afb8cf30bb2f93109788854c) Prerelease asset upload
+
+
+
+- [7262414](https://github.com/garyttierney/me3/commit/7262414bdab2120cfdd0257bb7244104cdcc980f) Prerelease creation
+
+
+
+- [afbf683](https://github.com/garyttierney/me3/commit/afbf68340efec3a9c8bb4dce6ae6f89621a44f35) Triggers on publishing workflow
+
+
+
+- [2c17c3b](https://github.com/garyttierney/me3/commit/2c17c3b59a0ace36f7000eadb620fdfeeb0e8010) Dependabot updates and dependency review in [#49](https://github.com/garyttierney/me3/pull/49)
+
+
+
+- [faea8b2](https://github.com/garyttierney/me3/commit/faea8b2821f83e03dee0ceabdb0604db4154c68f) Dependency review skip condition
+
+
+
+- [7898125](https://github.com/garyttierney/me3/commit/7898125a3dd4b1b2b9843a379c2e776472ce5067) Path to mod-host SBOM
+
+
+
+- [c562023](https://github.com/garyttierney/me3/commit/c5620237e843819f9c51061033c2dca7c2ef4efd) Args to GH release upload
+
+
+
+- [8dcb5f8](https://github.com/garyttierney/me3/commit/8dcb5f8a6bde9873dc49f86580c49af39cad9ed7) Paths to Windows artifacts
+
+
+
+- [ea3e2a7](https://github.com/garyttierney/me3/commit/ea3e2a767f5dae622b702b486fd0b05ceac45ef0) Makensis invocation for ubuntu runner
+
+
+
+- [c62d330](https://github.com/garyttierney/me3/commit/c62d3300b48fc9b9f5f829df058547b1abd7da12) Makensis invocation
+
+
+
+- [18e6b86](https://github.com/garyttierney/me3/commit/18e6b867b5fc42efcfbdd6c9d813ccdad7c92c75) Sentry feature flags for sub-crates
+
+
+
+- [715b7c6](https://github.com/garyttierney/me3/commit/715b7c6478001c85f96ad02e0c37b6557ebb0d83) MSVC caching action
+
+
+
+- [e1af53a](https://github.com/garyttierney/me3/commit/e1af53a7b606de3d68ab21102ec12ea9c89c8c8e) Clang binary names in CI
+
+
+
+- [ec1d02a](https://github.com/garyttierney/me3/commit/ec1d02a26b9d62082ae8b39245d154d536f6c41f) Markdownlint errors
+
+
+
+- [fdd29de](https://github.com/garyttierney/me3/commit/fdd29de7a1d27a7043362bd7196827c0ab1ded54) Anchors and rustup installer link
+
+
+
+- [db60705](https://github.com/garyttierney/me3/commit/db60705cc720b9ffc52cde83feb7d8c60d0c6048) Camel case capitalization
+
+
+
+- [45e7068](https://github.com/garyttierney/me3/commit/45e70689814f93eb8abc1ce498dab9c556acf08b) Markdown extensions
+
+
+
+- [1ef22f0](https://github.com/garyttierney/me3/commit/1ef22f0da240260cb03f244db2281cfc6f118fdb) Admonitions
+
+
+
+- [63c32cf](https://github.com/garyttierney/me3/commit/63c32cfad66b4d65ac9ddd9c980272f46c70033a) Uploading of release artifacts in [#32](https://github.com/garyttierney/me3/pull/32)
+
+
+
+- [558955d](https://github.com/garyttierney/me3/commit/558955d8822da9608aaea2c001e58581c98bc79a) Job cancellation of publishing on main
+
+
+
+- [f5aac3d](https://github.com/garyttierney/me3/commit/f5aac3deb64430c5c932aceae6f0e7833fe9039f) Pointer arithmetic for asset hook RVAs
+
+
+
+- [b4e0dfd](https://github.com/garyttierney/me3/commit/b4e0dfdd4bc1ddbefd33de2e52c313f1d2c53fcf) Recursion in curried trampolines
+
+
+
+- [80daf9c](https://github.com/garyttierney/me3/commit/80daf9cb190865518c282aeace85018c32b871a3) Lints, ensure detours are disabled on Drop
+
+
+
+- [6d29167](https://github.com/garyttierney/me3/commit/6d291676918d41f67c4ad112443c4243bff72a86) CXXFLAGS for Linux builds
+
+
+
+- [625215c](https://github.com/garyttierney/me3/commit/625215c3ae5a295d66d454b13ca88f3ac31e9036) Sorting of natives/packages with no dependencies
+
+
+
+- [df6af9f](https://github.com/garyttierney/me3/commit/df6af9f6744b42512c0d625c232752b5116c4a54) Crash handler being dropped early
+
+
+
+- [4f0f21d](https://github.com/garyttierney/me3/commit/4f0f21ddafef3ac74ad16149b5eed19fe076374e) Auto-generation of Prepend impls
+
+
+
+- [9643489](https://github.com/garyttierney/me3/commit/9643489b1a6318662ae48a499093f8e6bc72681e) Naked attribute in latest nightly
+
+
+
+- [5f5759f](https://github.com/garyttierney/me3/commit/5f5759f73fbfd26499871cb612bf569c3366d9e9) Build
+
+
+
+- [cbd6213](https://github.com/garyttierney/me3/commit/cbd62134717b8a45909fdeabfdc285b00d983e6d) Vscode launch task
+
+
+
 ### Other
 
 - [3c1a4b0](https://github.com/garyttierney/me3/commit/3c1a4b02149e8ed17c5f96b950a05ac70a86eebc) [StepSecurity] Apply security best practices
@@ -498,133 +811,6 @@ All notable changes to this project will be documented in this file.
 - [72670b7](https://github.com/garyttierney/me3/commit/72670b798df8c4fa2e21b2f67662f2fa7a34184e) Create assets folder in installer
 
 
-
-### 📚 Documentation
-
-- [1317689](https://github.com/garyttierney/me3/commit/13176892eacacbecc46b32174060f7735a529f84) Update README
-
-
-
-- [b4047a0](https://github.com/garyttierney/me3/commit/b4047a087941ba68f757e05b34e691142e4b3b58) Add update instructions to release notes in [#114](https://github.com/garyttierney/me3/pull/114)
-
-
-
-- [22c909a](https://github.com/garyttierney/me3/commit/22c909a81c6dde6706d807a64ddda0e59d7ab22d) Surround PGP signature in codeblocks
-
-
-
-- [80e15f4](https://github.com/garyttierney/me3/commit/80e15f4da82f79b2f9950910d637d0a4b9135251) Update acknowledgements for icon artwork
-
-
-
-- [6d3c6c4](https://github.com/garyttierney/me3/commit/6d3c6c4a73122aa5dd2903e9455d4e2014b33fd2) Add RELEASE_CHECKLIST
-
-
-
-### ⚙️ Miscellaneous Tasks
-
-- [6453215](https://github.com/garyttierney/me3/commit/6453215fec87a0d535cb61f674d1f2925e8935eb)  *(ci)* Typo in set-version package name in [#152](https://github.com/garyttierney/me3/pull/152)
-
-
-
-- [cab259a](https://github.com/garyttierney/me3/commit/cab259aa07beba798500fe33447479d3d1711590)  *(ci)* Include full checkout for changelog
-
-
-
-- [4caf8ce](https://github.com/garyttierney/me3/commit/4caf8cea149ecbc95b1a36cb698a07d7ac33198f)  *(ci)* Openssf scorecard scanning workflow in [#131](https://github.com/garyttierney/me3/pull/131)
-
-
-
-- [b0f8a08](https://github.com/garyttierney/me3/commit/b0f8a08e04e53874c24919d8008638b545560338)  *(ci)* Publish pre-releases with version number prefix
-
-
-
-- [3177c9b](https://github.com/garyttierney/me3/commit/3177c9b4de67a08224d54dd819c8e630056dce23)  *(ci)* Make sure PDBs are published
-
-
-
-- [9b64a8b](https://github.com/garyttierney/me3/commit/9b64a8b9dfc18edfd4d2a0dfebf3a23b86a3075d)  *(ci)* Always upload coverage to codecov
-
-
-## me3 - [v0.4.0](https://github.com/garyttierney/me3/releases/v0.4.0) - 2025-06-07
-
-### 🚀 Features
-
-- [31e48cd](https://github.com/garyttierney/me3/commit/31e48cdb9a30d5f3b20a64219c79a6db45ec6520) Add icon and diagnostics verb to windows shell in [#85](https://github.com/garyttierney/me3/pull/85)
-
-
-
-- [2abdbf1](https://github.com/garyttierney/me3/commit/2abdbf1d95f1aea69ff9b7922b58fa8240eba8e2) Use icon for me3 profiles on windows
-
-
-
-- [6366a58](https://github.com/garyttierney/me3/commit/6366a58da10c42357f772ecb47e196f58b739f50) Log rotation for profile logs
-
-
-  > Log files are now created in a per-profile directory and rotated
-  > automatically after 5 log files are created. Additionally, only one
-  > profile may be speciied to `me3 launch`.
-
-
-- [8f145b5](https://github.com/garyttierney/me3/commit/8f145b570f30ddf7685f937bfe00ccf5b0d7253d) Add 'path' as an alias to 'source' for packages
-
-
-
-- [f9527f7](https://github.com/garyttierney/me3/commit/f9527f7ac450e86c471365c4d378daced72b7fbd) Support for armored core 6
-
-
-
-### 🐛 Bug Fixes
-
-- [3e45e35](https://github.com/garyttierney/me3/commit/3e45e352f1cc5c9d088d09f384df5f84832ffa0e) Allow blank issues on GH
-
-
-
-- [592d3be](https://github.com/garyttierney/me3/commit/592d3beb1ef3c9df454f4eea72ed8f531560bef7) Remove tracing setup log line
-
-
-
-- [1aeed8b](https://github.com/garyttierney/me3/commit/1aeed8b2efc040b9bf301ffdb65d7f718d287eee) Sentry propagation
-
-
-
-- [0bfc838](https://github.com/garyttierney/me3/commit/0bfc8381b79585c166735e94d85562ba575398e7) Don't create log folders with profile extensions
-
-
-
-- [2f15fae](https://github.com/garyttierney/me3/commit/2f15faeb37252d556aaaf3742f4938f7db3f775a) Relax formatting of log files
-
-
-
-- [8918f3e](https://github.com/garyttierney/me3/commit/8918f3eac84d6d22be5c27365b5427e9d9a4b16a) Console writing for cli
-
-
-
-- [49c6374](https://github.com/garyttierney/me3/commit/49c637462e6e767b066b2e654a79eb5ca10dfd6b) Don't rotate files that aren't log files
-
-
-
-- [62768ab](https://github.com/garyttierney/me3/commit/62768ab1ec52ca248fd4c2ddfe89bfc50616c829) Properly associate telemetry with sentry releases
-
-
-
-- [bc83a08](https://github.com/garyttierney/me3/commit/bc83a0899de66cf85467f34dbec746f9d297d65f) Disable link checking in release notes template
-
-
-
-- [179de3a](https://github.com/garyttierney/me3/commit/179de3a1dcb25b30dd4fd02dcbcc8e3124aa8a98) Typo in README
-
-
-
-- [378cd00](https://github.com/garyttierney/me3/commit/378cd006fcdf2b5d1dcdaa07de98100d0d37e3e6) Copy-pasted error message
-
-
-
-- [0d886bf](https://github.com/garyttierney/me3/commit/0d886bf9ae5f8302b66f16b2fae670b7cd6a2d42) Enum values and `ReadEbl`
-
-
-
-### Other
 
 - [9f8d139](https://github.com/garyttierney/me3/commit/9f8d13961bb2140580942a43a569988fbbd29ce9) Prepare v0.4.0 release in [#88](https://github.com/garyttierney/me3/pull/88)
 
@@ -809,55 +995,6 @@ All notable changes to this project will be documented in this file.
 
 
 
-### 📚 Documentation
-
-- [e6cb47f](https://github.com/garyttierney/me3/commit/e6cb47fc4c75140bbd2522b3ce064a2f5ccde67f) Add AC6 to README
-
-
-
-### ⚙️ Miscellaneous Tasks
-
-- [289339b](https://github.com/garyttierney/me3/commit/289339baa1acadc507741cf59fdc01658c2e2ce4)  *(ci)* Checkout sources during publishing in [#79](https://github.com/garyttierney/me3/pull/79)
-
-
-
-- [2840638](https://github.com/garyttierney/me3/commit/2840638c3e7fd1c1b998ff60fa73b116ff637a52)  *(ci)* Fix typo in publishing job in [#78](https://github.com/garyttierney/me3/pull/78)
-
-
-
-- [c0d0893](https://github.com/garyttierney/me3/commit/c0d0893b41059422dccf7a516d3df59e99c91d02)  *(ci)* Duplicate workflow name
-
-
-
-- [19c85b7](https://github.com/garyttierney/me3/commit/19c85b70d7313957c944041cf45152e6f6a74059)  *(ci)* Permission to download artifacts in publisher
-
-
-## me3 - [v0.3.0](https://github.com/garyttierney/me3/releases/v0.3.0) - 2025-06-02
-
-### 🐛 Bug Fixes
-
-- [2c3e005](https://github.com/garyttierney/me3/commit/2c3e0051c61db2fb185985c58f5f99bac5f3bfba) Release note generation and PR creation in [#62](https://github.com/garyttierney/me3/pull/62)
-
-
-
-- [c466eef](https://github.com/garyttierney/me3/commit/c466eef802a317d736b2fcad7e51fa54942a7f9e) Default profile directory resolution in [#64](https://github.com/garyttierney/me3/pull/64)
-
-
-
-- [12a5404](https://github.com/garyttierney/me3/commit/12a54047a53e2481deef9f536a592c370106f925) Typo in attestation output
-
-
-
-- [64698ca](https://github.com/garyttierney/me3/commit/64698ca5e3c704f42475d559f7407be16354f760) Some typos and add spellchecking to CI in [#63](https://github.com/garyttierney/me3/pull/63)
-
-
-
-- [4921487](https://github.com/garyttierney/me3/commit/4921487c917fe58558f2683253b78473ddbf5a99) Dependency submission
-
-
-
-### Other
-
 - [e28e243](https://github.com/garyttierney/me3/commit/e28e2437d90d2a2382740f4b507d158a79edad51) Shell script installer for Linux in [#65](https://github.com/garyttierney/me3/pull/65)
 
 
@@ -897,196 +1034,6 @@ All notable changes to this project will be documented in this file.
 - [f1e56cf](https://github.com/garyttierney/me3/commit/f1e56cf27830d85ce34530e891e7a7cced1a3f46) Separate CHANGELOG check so it runs on relabeling
 
 
-## me3 - [v0.2.0](https://github.com/garyttierney/me3/releases/v0.2.0) - 2025-06-01
-
-### 🚀 Features
-
-- [7a7d04b](https://github.com/garyttierney/me3/commit/7a7d04b63389ace2bbcb7b70891b2a20229ca7ba) Add me3 command-line interface in [#48](https://github.com/garyttierney/me3/pull/48)
-
-
-  > Introduces a new command-line interface for me3 that can be used to
-  > manage profiles, check the status of the me3 install, and run the
-  > launcher. See help output of `me3 --help` for more information.
-
-  > Commands supported:
-
-  >     me3 launch
-  >     me3 info
-  >     me3 profile show
-  >     me3 profile create
-  >     me3 profile list
-
-  > This also runs as a native binary on Linux hosts and will run the
-  > correct commandds uner the hood to set Proton up.
-
-
-### 🐛 Bug Fixes
-
-- [8dff588](https://github.com/garyttierney/me3/commit/8dff5886e1dfc01637943fc589947a0161369533) Version constraint of workspace packages in [#56](https://github.com/garyttierney/me3/pull/56)
-
-
-
-- [a995c81](https://github.com/garyttierney/me3/commit/a995c817176b2975fa1551c892a8fe48ba569698) More dead links
-
-
-
-- [d9b5bf1](https://github.com/garyttierney/me3/commit/d9b5bf14616c1836604c32d0bab178a419193396) Dead-links in configuration-reference
-
-
-
-- [2f1e7a1](https://github.com/garyttierney/me3/commit/2f1e7a16313dd530faeb41e0fb706ace66ba2cea) Dead links
-
-
-
-- [1e2f8d6](https://github.com/garyttierney/me3/commit/1e2f8d66964867dd2bfa35b5456151248a4e6e46) Lints
-
-
-
-- [40f6f65](https://github.com/garyttierney/me3/commit/40f6f6599e3d1db5181f96772ca01cbfbbacacfb) Me3 profile show command
-
-
-
-- [d8efb8c](https://github.com/garyttierney/me3/commit/d8efb8cce4da1f1277b2651c845ee7c745359eb1) Zombie me3-launcher processes
-
-
-
-- [3592721](https://github.com/garyttierney/me3/commit/3592721098a6e0840d8170ae94cc3b6bf856d545) Windows installation registry key name
-
-
-
-- [d70925a](https://github.com/garyttierney/me3/commit/d70925a006d6edb13350065815fc2b02e121f4d4) Path to me3 installer in publish action
-
-
-
-- [527b336](https://github.com/garyttierney/me3/commit/527b336def6cb1dc556bd6eea2afcd89bd368dba) Args to SBOM upload
-
-
-
-- [4e40e27](https://github.com/garyttierney/me3/commit/4e40e278d207dc0412c3883a0fd396a716152055) Generation of Rust SBOMs
-
-
-
-- [c70c1ca](https://github.com/garyttierney/me3/commit/c70c1ca06231a206afb8cf30bb2f93109788854c) Prerelease asset upload
-
-
-
-- [7262414](https://github.com/garyttierney/me3/commit/7262414bdab2120cfdd0257bb7244104cdcc980f) Prerelease creation
-
-
-
-- [afbf683](https://github.com/garyttierney/me3/commit/afbf68340efec3a9c8bb4dce6ae6f89621a44f35) Triggers on publishing workflow
-
-
-
-- [2c17c3b](https://github.com/garyttierney/me3/commit/2c17c3b59a0ace36f7000eadb620fdfeeb0e8010) Dependabot updates and dependency review in [#49](https://github.com/garyttierney/me3/pull/49)
-
-
-
-- [faea8b2](https://github.com/garyttierney/me3/commit/faea8b2821f83e03dee0ceabdb0604db4154c68f) Dependency review skip condition
-
-
-
-- [7898125](https://github.com/garyttierney/me3/commit/7898125a3dd4b1b2b9843a379c2e776472ce5067) Path to mod-host SBOM
-
-
-
-- [c562023](https://github.com/garyttierney/me3/commit/c5620237e843819f9c51061033c2dca7c2ef4efd) Args to GH release upload
-
-
-
-- [8dcb5f8](https://github.com/garyttierney/me3/commit/8dcb5f8a6bde9873dc49f86580c49af39cad9ed7) Paths to Windows artifacts
-
-
-
-- [ea3e2a7](https://github.com/garyttierney/me3/commit/ea3e2a767f5dae622b702b486fd0b05ceac45ef0) Makensis invocation for ubuntu runner
-
-
-
-- [c62d330](https://github.com/garyttierney/me3/commit/c62d3300b48fc9b9f5f829df058547b1abd7da12) Makensis invocation
-
-
-
-- [18e6b86](https://github.com/garyttierney/me3/commit/18e6b867b5fc42efcfbdd6c9d813ccdad7c92c75) Sentry feature flags for sub-crates
-
-
-
-- [715b7c6](https://github.com/garyttierney/me3/commit/715b7c6478001c85f96ad02e0c37b6557ebb0d83) MSVC caching action
-
-
-
-- [e1af53a](https://github.com/garyttierney/me3/commit/e1af53a7b606de3d68ab21102ec12ea9c89c8c8e) Clang binary names in CI
-
-
-
-- [ec1d02a](https://github.com/garyttierney/me3/commit/ec1d02a26b9d62082ae8b39245d154d536f6c41f) Markdownlint errors
-
-
-
-- [fdd29de](https://github.com/garyttierney/me3/commit/fdd29de7a1d27a7043362bd7196827c0ab1ded54) Anchors and rustup installer link
-
-
-
-- [db60705](https://github.com/garyttierney/me3/commit/db60705cc720b9ffc52cde83feb7d8c60d0c6048) Camel case capitalization
-
-
-
-- [45e7068](https://github.com/garyttierney/me3/commit/45e70689814f93eb8abc1ce498dab9c556acf08b) Markdown extensions
-
-
-
-- [1ef22f0](https://github.com/garyttierney/me3/commit/1ef22f0da240260cb03f244db2281cfc6f118fdb) Admonitions
-
-
-
-- [63c32cf](https://github.com/garyttierney/me3/commit/63c32cfad66b4d65ac9ddd9c980272f46c70033a) Uploading of release artifacts in [#32](https://github.com/garyttierney/me3/pull/32)
-
-
-
-- [558955d](https://github.com/garyttierney/me3/commit/558955d8822da9608aaea2c001e58581c98bc79a) Job cancellation of publishing on main
-
-
-
-- [f5aac3d](https://github.com/garyttierney/me3/commit/f5aac3deb64430c5c932aceae6f0e7833fe9039f) Pointer arithmetic for asset hook RVAs
-
-
-
-- [b4e0dfd](https://github.com/garyttierney/me3/commit/b4e0dfdd4bc1ddbefd33de2e52c313f1d2c53fcf) Recursion in curried trampolines
-
-
-
-- [80daf9c](https://github.com/garyttierney/me3/commit/80daf9cb190865518c282aeace85018c32b871a3) Lints, ensure detours are disabled on Drop
-
-
-
-- [6d29167](https://github.com/garyttierney/me3/commit/6d291676918d41f67c4ad112443c4243bff72a86) CXXFLAGS for Linux builds
-
-
-
-- [625215c](https://github.com/garyttierney/me3/commit/625215c3ae5a295d66d454b13ca88f3ac31e9036) Sorting of natives/packages with no dependencies
-
-
-
-- [df6af9f](https://github.com/garyttierney/me3/commit/df6af9f6744b42512c0d625c232752b5116c4a54) Crash handler being dropped early
-
-
-
-- [4f0f21d](https://github.com/garyttierney/me3/commit/4f0f21ddafef3ac74ad16149b5eed19fe076374e) Auto-generation of Prepend impls
-
-
-
-- [9643489](https://github.com/garyttierney/me3/commit/9643489b1a6318662ae48a499093f8e6bc72681e) Naked attribute in latest nightly
-
-
-
-- [5f5759f](https://github.com/garyttierney/me3/commit/5f5759f73fbfd26499871cb612bf569c3366d9e9) Build
-
-
-
-- [cbd6213](https://github.com/garyttierney/me3/commit/cbd62134717b8a45909fdeabfdc285b00d983e6d) Vscode launch task
-
-
-
-### Other
 
 - [ebe7325](https://github.com/garyttierney/me3/commit/ebe73255cc0eac4dd0d80800eee70cd1a7c1cb68) Allow users to opt out of  telemetry in [#61](https://github.com/garyttierney/me3/pull/61)
 
@@ -1312,10 +1259,6 @@ All notable changes to this project will be documented in this file.
 
 
 
-- [76cb6b1](https://github.com/garyttierney/me3/commit/76cb6b1c60b75c18bd8cdd63e789f9b0389908a6) Update mod profile schema
-
-
-
 - [b3b443d](https://github.com/garyttierney/me3/commit/b3b443d1195051f79eff4ab490e69a46397351d6) Build mod-protocol with serde derive feature
 
 
@@ -1491,10 +1434,6 @@ All notable changes to this project will be documented in this file.
 
 
 
-- [8b040fe](https://github.com/garyttierney/me3/commit/8b040fef61db012e5e431f48070db2eeaf75dff0) Rustfmt
-
-
-
 - [2083d9b](https://github.com/garyttierney/me3/commit/2083d9bff6d222a5df8dcd7f95c8e338a6a4f9a2) Make encoding constants private and inlined in the module
 
 
@@ -1656,10 +1595,6 @@ All notable changes to this project will be documented in this file.
 
 
 - [190012b](https://github.com/garyttierney/me3/commit/190012b1b68a93955f92104b013e27f84be5ae0d) Only upload PDBs to sentry on release
-
-
-
-- [5ff23a0](https://github.com/garyttierney/me3/commit/5ff23a03e8fda98e16bd87b4e69ba8425af1b2a8) Cargo fmt
 
 
 
@@ -2004,11 +1939,136 @@ All notable changes to this project will be documented in this file.
 - [c4e6ef5](https://github.com/garyttierney/me3/commit/c4e6ef502776db75d89dbfef6c585b658a28caf4) Initial commit
 
 
-[0.6.1]: https://github.com/garyttierney/me3/compare/v0.6.0..v0.6.1
-[0.6.0]: https://github.com/garyttierney/me3/compare/v0.5.0..v0.6.0
-[0.5.0]: https://github.com/garyttierney/me3/compare/v0.4.0..v0.5.0
-[0.4.0]: https://github.com/garyttierney/me3/compare/v0.3.0..v0.4.0
-[0.3.0]: https://github.com/garyttierney/me3/compare/v0.2.0..v0.3.0
-[0.2.0]: https://github.com/garyttierney/me3/compare/v0.1.0..v0.2.0
+
+### 📚 Documentation
+
+- [b2ef03a](https://github.com/garyttierney/me3/commit/b2ef03a6b2052c717e611f7520f8099abaa306ef)  *(zh)* Localize user feedback prompt and cookie consent in [#323](https://github.com/garyttierney/me3/pull/323)
+
+
+
+- [e6a63cf](https://github.com/garyttierney/me3/commit/e6a63cf5068a17b46416a8279a8c8b2a01ebcdb6)  *(zh)* Refine Simplified Chinese translations in [#324](https://github.com/garyttierney/me3/pull/324)
+
+
+
+- [7ef38bd](https://github.com/garyttierney/me3/commit/7ef38bd859fa5548ac6c60972a1c6d45e5f7afce) Fix typos and syntax shifted by l10n in [#320](https://github.com/garyttierney/me3/pull/320)
+
+
+
+- [91a06aa](https://github.com/garyttierney/me3/commit/91a06aaec9635269a5111857dab7f812b6b814b0) Localize navigation to Simplified Chinese in [#322](https://github.com/garyttierney/me3/pull/322)
+
+
+
+- [f3cd704](https://github.com/garyttierney/me3/commit/f3cd704ed059d524e034bbb41cd35ac7c7ebaf21) Translate Mod Profile schema docs in [#321](https://github.com/garyttierney/me3/pull/321)
+
+
+
+- [5e66b88](https://github.com/garyttierney/me3/commit/5e66b88215cf74ced183d4eb0ed0ccce73ab4a37) Chinese (language) not Chinese (nationality) in [#319](https://github.com/garyttierney/me3/pull/319)
+
+
+  > 中国人 = Chinese (nationality)
+  > 中文 = Chinese (language)
+
+
+- [0187c55](https://github.com/garyttierney/me3/commit/0187c554f0b91d80bd0e109aa62707f08c97f6fe) Add Chinese and Polish translations in [#318](https://github.com/garyttierney/me3/pull/318)
+
+
+  > Adds the recent translations contributed by the community to the
+  > documentation site.
+  > A new language selector is available to switch between different
+  > languages.
+
+
+- [1a46c82](https://github.com/garyttierney/me3/commit/1a46c8270ee9fd3de81e14d28394ea9134329677) Add SECURITY.md in [#314](https://github.com/garyttierney/me3/pull/314)
+
+
+
+- [2abb7bb](https://github.com/garyttierney/me3/commit/2abb7bb3adedc475f5c0c0ad8652f6cf1d87f6cd) Fix 'value' typo in natives doc comment in [#297](https://github.com/garyttierney/me3/pull/297)
+
+
+
+- [6ad57b1](https://github.com/garyttierney/me3/commit/6ad57b111b29a537aec9f2ab5c68f44ad2b4c3a0) Fix typo in FROMSOFTWARE in [#295](https://github.com/garyttierney/me3/pull/295)
+
+
+  > Change "FROMSOTWARE" -> "FROMSOFTWARE"
+
+
+- [b19b629](https://github.com/garyttierney/me3/commit/b19b629120dcafb5dd90129d2a9583c88a6783ec) Complete initial release documentation tasks in [#284](https://github.com/garyttierney/me3/pull/284)
+
+
+
+- [5370cf4](https://github.com/garyttierney/me3/commit/5370cf416fb07977beb3c675aeec3c49f5128239) Update supported games/platforms in README in [#230](https://github.com/garyttierney/me3/pull/230)
+
+
+
+- [1e4a31d](https://github.com/garyttierney/me3/commit/1e4a31d361de5ec03c01076625873a624b7d1762) Add downloads and recent changes badge to README
+
+
+
+- [1317689](https://github.com/garyttierney/me3/commit/13176892eacacbecc46b32174060f7735a529f84) Update README
+
+
+
+- [b4047a0](https://github.com/garyttierney/me3/commit/b4047a087941ba68f757e05b34e691142e4b3b58) Add update instructions to release notes in [#114](https://github.com/garyttierney/me3/pull/114)
+
+
+
+- [22c909a](https://github.com/garyttierney/me3/commit/22c909a81c6dde6706d807a64ddda0e59d7ab22d) Surround PGP signature in codeblocks
+
+
+
+- [80e15f4](https://github.com/garyttierney/me3/commit/80e15f4da82f79b2f9950910d637d0a4b9135251) Update acknowledgements for icon artwork
+
+
+
+- [6d3c6c4](https://github.com/garyttierney/me3/commit/6d3c6c4a73122aa5dd2903e9455d4e2014b33fd2) Add RELEASE_CHECKLIST
+
+
+
+- [e6cb47f](https://github.com/garyttierney/me3/commit/e6cb47fc4c75140bbd2522b3ce064a2f5ccde67f) Add AC6 to README
+
+
+
+### ⚙️ Miscellaneous Tasks
+
+- [6453215](https://github.com/garyttierney/me3/commit/6453215fec87a0d535cb61f674d1f2925e8935eb)  *(ci)* Typo in set-version package name in [#152](https://github.com/garyttierney/me3/pull/152)
+
+
+
+- [cab259a](https://github.com/garyttierney/me3/commit/cab259aa07beba798500fe33447479d3d1711590)  *(ci)* Include full checkout for changelog
+
+
+
+- [4caf8ce](https://github.com/garyttierney/me3/commit/4caf8cea149ecbc95b1a36cb698a07d7ac33198f)  *(ci)* Openssf scorecard scanning workflow in [#131](https://github.com/garyttierney/me3/pull/131)
+
+
+
+- [b0f8a08](https://github.com/garyttierney/me3/commit/b0f8a08e04e53874c24919d8008638b545560338)  *(ci)* Publish pre-releases with version number prefix
+
+
+
+- [3177c9b](https://github.com/garyttierney/me3/commit/3177c9b4de67a08224d54dd819c8e630056dce23)  *(ci)* Make sure PDBs are published
+
+
+
+- [9b64a8b](https://github.com/garyttierney/me3/commit/9b64a8b9dfc18edfd4d2a0dfebf3a23b86a3075d)  *(ci)* Always upload coverage to codecov
+
+
+
+- [289339b](https://github.com/garyttierney/me3/commit/289339baa1acadc507741cf59fdc01658c2e2ce4)  *(ci)* Checkout sources during publishing in [#79](https://github.com/garyttierney/me3/pull/79)
+
+
+
+- [2840638](https://github.com/garyttierney/me3/commit/2840638c3e7fd1c1b998ff60fa73b116ff637a52)  *(ci)* Fix typo in publishing job in [#78](https://github.com/garyttierney/me3/pull/78)
+
+
+
+- [c0d0893](https://github.com/garyttierney/me3/commit/c0d0893b41059422dccf7a516d3df59e99c91d02)  *(ci)* Duplicate workflow name
+
+
+
+- [19c85b7](https://github.com/garyttierney/me3/commit/19c85b70d7313957c944041cf45152e6f6a74059)  *(ci)* Permission to download artifacts in publisher
+
+
+[0.7.0]: https://github.com/garyttierney/me3/compare/v0.6.1..v0.7.0
 
 <!-- generated by git-cliff -->
